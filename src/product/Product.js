@@ -2,7 +2,7 @@
 import "./Product.css"
 import React from 'react'
 
-export default function Product({name,price,src,count:number}) {
+export default function Product({name,price,src="india.png",count:number}) {
     // console.log(props)
 
     // let {name,price,src,count} = props
@@ -39,7 +39,9 @@ export default function Product({name,price,src,count:number}) {
 
 
 
-
+// Product.defaultProps = {
+//     src:"india.png"
+// }
 
 
 
