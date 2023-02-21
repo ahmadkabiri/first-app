@@ -13,8 +13,12 @@ function App() {
 
   return (
     <div className="container">
-      <Product {...allProducts[0]}></Product>
-      <Product {...allProducts[1]}></Product>
+      <Product {...allProducts[0]}>
+      <p>Off (50%)</p>
+      </Product>
+      <Product {...allProducts[1]}>
+        <button>Not Recomnded</button>
+      </Product>
       <Product {...allProducts[2]}></Product>
     </div>
   );

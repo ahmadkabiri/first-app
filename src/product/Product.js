@@ -2,7 +2,7 @@
 import "./Product.css"
 import React from 'react'
 
-export default function Product({name,price,src="india.png",count:number}) {
+export default function Product({name,price,src="india.png",count:number ,children}) {
     // console.log(props)
 
     // let {name,price,src,count} = props
@@ -16,6 +16,7 @@ export default function Product({name,price,src="india.png",count:number}) {
         <div className='description'>
             <p>{price}$</p>
             <button>ADD TO CART</button>
+            {children}
         </div>
     </div>
     )
