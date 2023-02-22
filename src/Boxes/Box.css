@@ -1,0 +1,29 @@
+.box{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 0.3rem;
+    transition: all 0.4s ease-in-out;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.box:hover{
+    transform: scale(1.1);
+}
+
+.icon{
+    font-size: 2.5rem;
+    color: #277fc2;
+}
+
+.box h4{
+    font-size: 1.2rem ;
+}
+
+.box p{
+    font-size: 0.75rem;
+    padding:0  1.5rem;
+    font-family: "IRyekan";
+}

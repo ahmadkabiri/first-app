@@ -1,0 +1,96 @@
+@font-face {
+    font-family:"aviny";
+    font-weight: 400;
+    font-style:normal;
+    src: url("/public/Font/FontSayeh/aviny.ttf");
+}
+@font-face {
+    font-family:"IRyekan";
+    font-weight: 400;
+    font-style:normal;
+    src: url("/public/Font/FontSayeh/IRYekan.woff") format("woff");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header{
+    width: 100%;
+    border-bottom: 1px solid rgb(235, 233, 233);
+    position: fixed;
+    background-color: #fff;
+    z-index: 999;
+}
+
+.header-top{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    padding: 0 6rem;
+}
+h1 a {
+   text-decoration: none; 
+   font-family: "aviny";
+   font-size: larger;
+   color: #144468;
+}
+
+nav{
+    width: 60%;
+    height: 4rem;
+    margin-left: 1.5rem;
+
+}
+
+.header-topics{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    height: 100%;
+}
+
+.header-topics li {
+    padding: 0 1.1rem;
+    
+}
+
+
+.header-topics li a {
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:"IRYekan" , aviny;
+    font-size: 0.8rem;
+    color: #16507b ;
+    transition: all 0.3s linear;
+    padding: 0.4rem 0;
+}
+
+.header-topics li a:hover {
+    color:#3887b9;
+}
+
+
+.start {
+    background: #2487ce;
+    border-radius: 0.5rem ;
+}
+
+.start:hover{
+    background: #3887b9;
+}
+
+
+.header-topics .start a,
+.header-topics .start a:hover{
+    color: #fff;
+}
