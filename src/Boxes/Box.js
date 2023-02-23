@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Box.css"
-
+import propTypes from 'prop-types'
 
 
 
@@ -16,4 +16,9 @@ export default function Box({icon,title,description}) {
         </div>
     </div>
   )
+}
+
+
+Box.propTypes = {
+  icon : propTypes.number ,
 }
