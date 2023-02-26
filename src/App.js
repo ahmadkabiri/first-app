@@ -4,75 +4,128 @@ import AboutUs from "./AboutUs/AboutUs";
 import User from "./User";
 import React from "react";
 
-import "./App.css"
-class App extends React.Component {
 
-constructor (props) {
-  super(props)
-  this.state = {
-    users : [
-      {id:1 , name:"Ali"},
-      {id:2 , name:"Amin"},
-      {id:3 , name:"Amir"},
-      {id:4 , name:"Babak"},
-    ]
-  }
+// class App extends React.Component{
 
-  this.code = 25 
+//   constructor (props) {
+//     super(props)
+//     this.state =  {
+//      users :  [
+//       {id:1 , name:"Ali"},
+//       {id:2 , name:"Amin"},
+//       {id:3 , name:"Amir"},
+//       {id:4 , name:"Babak"},
+//     ],
+//     scores : [23,21,90,83,29] ,
+
+//     count : 0 ,
+//     }
+    
+//     this.code = 25
+//     this.clickHandler = this.clickHandler.bind(this)
+//   }
+  
+//   clickHandler () {
+//     this.code = 222
+//     console.log(this) ;
+//   }
+
+//   keyDownHandler () {
+//     console.log("Type Shod")
+
+//   }
 
 
-  // setTimeout(() => {
-  //   this.setState({
-  //     users : [
-  //       {id:1 , name:"Qadir"},
-  //       {id:2 , name:"Sasan"},
-  //       {id:3 , name:"Mohammad"},
-  //       {id:4 , name:"Ashkan"},
-  //     ]
-  //   }) 
-  // },2500);
+//   changeUsersHandler () {
+    
+//     setTimeout(() => {
+//       // this.setState({
+//       //   users :  [
+//       //    {id:1 , name:"Qadir"},
+//       //    {id:2 , name:"Sasan"},
+//       //    {id:3 , name:"Mohmmad"},
+//       //    {id:4 , name:"Ashkan"},
+//       //  ]
+//       //  })
 
-  this.clickHandler = this.clickHandler.bind(this)
+      
+//     }, 5000);
+    
+//     this.setState((prevState)=>{
+//       return {count : prevState.count + 1}
+//     })
+//     console.log("ok")
 
-}
-// این مربوط به فیلم 56 هست که دیس اندیفایند تشخیص داده شد.
-// حالا توی جاوا اسکریپت اینجوری نبود ولی اینجا اینجوری شده . راه حلشم جلوش نوشتم.
 
-// clickHandler () {
-//   console.log(this)
-//   this.code = 35 ;
+//   }
+
+
+
+//   render() {
+//     return (
+//       <div>
+//         {this.code}
+//         {/* <h1 onClick={this.clickHandler.bind(this)} >{this.code}</h1> */}
+
+//         {/* <h1 onClick={()=>this.clickHandler()} >{this.code}</h1> */}
+
+//         <h1 onClick={this.clickHandler} >{this.code}</h1>
+
+
+//         <input type="text" onKeyDown = {this.keyDownHandler} />
+//         <button onClick={this.changeUsersHandler.bind(this)}>Change Users</button>
+//         <User {...this.state.users[0]} ></User>
+//         <User {...this.state.users[1]} ></User>
+//         <User {...this.state.users[2]} ></User>
+//         <User {...this.state.users[3]} ></User>
+//       </div>
+//     )
+//   }
+
 // }
 
-clickHandler () {
-  console.log(this)
-  this.code = 55 ;
-}
-
-keyDownHandler () {
-  console.log("click shod")
-}
 
 
-  render () {
+export default class App extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      count : 0 ,
+    }
+
+    this.addToCounter = this.addToCounter.bind(this)
+    this.minusFromCounter = this.minusFromCounter.bind(this)
+
+  }
+
+  addToCounter () {
+    this.setState((prevState)=>{
+      return {count : prevState.count + 1}
+    })
+  }
+
+  minusFromCounter () {
+    this.setState((prevState)=>{
+      return {count : prevState.count - 1}
+    })
+  }
+
+  render() {
     return (
-      <div className="container">
-        {/* <Header></Header>
-        <Hero></Hero>
-        <AboutUs></AboutUs> */}
-        {/* روش اول حل مساله */}
-        <h1 onClick={this.clickHandler.bind(this)}>{this.code}</h1> 
-        {/* روش دوم حل مساله   */}
-        <h1 onClick={()=>this.clickHandler()}>{this.code}</h1>
-        {/*   روش سوم حل مساله رفت بایند کرد البته توی خود کانستراکتور */}
-        <h1 onClick={this.clickHandler}>{this.code}</h1>
-        <input type="text" onKeyDown={this.keyDownHandler} />
-        <User {...this.state.users[0]}></User>
-        <User {...this.state.users[1]}></User>
-        <User {...this.state.users[2]}></User>
-        <User {...this.state.users[3]}></User>
-      </div>
-    );
+      <section id="main">
+        <div className="container">
+          <h2 id="title">Counter</h2>
+          <h3 id="counter">{this.state.count}</h3>
+          <div className="btn-container">
+            <button id="add" onClick={this.addToCounter}>Add Count</button>
+            <button id="lower" onClick={this.minusFromCounter}>Lower Count</button>
+          </div>
+        </div>
+      </section>
+    )
   }
 }
 
-export default App;
+
+
