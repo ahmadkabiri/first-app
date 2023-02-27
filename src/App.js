@@ -90,40 +90,63 @@ export default class App extends React.Component {
 
   constructor(props){
     super(props)
+
     this.state = {
-      count : 0 ,
+      age : 13
     }
 
-    this.addToCounter = this.addToCounter.bind(this)
-    this.minusFromCounter = this.minusFromCounter.bind(this)
-
   }
 
-  addToCounter () {
-    this.setState((prevState)=>{
-      return {count : prevState.count + 1}
-    })
-  }
 
-  minusFromCounter () {
-    this.setState((prevState)=>{
-      return {count : prevState.count - 1}
-    })
-  }
 
   render() {
+    
+    // if(this.state.age>18){
+    // return (
+    //   <div>
+    //     شما وارد وبسایت شدید
+    //   </div>
+
+    //   )
+    // }else {
+    //   return (
+    //     <div>
+    //       شما مجاز به ورود نیستید
+    //     </div>
+  
+    //     )
+    // }
+    ////////////////////////////////////
+
+    // let errorMessage = null ;
+    // if(this.state.age<18){
+    //   errorMessage = <h1> شما مجاز نیستید</h1>
+    // }else{
+    //   errorMessage = <h1>شما مجاز به ورود هستید</h1>
+    // }
+    // return(
+    //   <div>
+    //     {errorMessage{}
+    //   </div>
+    // )
+
+    /////////////////////////
+    // return(
+    //   <div>
+    //     {this.state.age<18 && (
+    //       <h1> شما مجاز به ورود نیستید</h1>
+    //     )}
+    //   </div>
+    // )
+
+
+
     return (
-      <section id="main">
-        <div className="container">
-          <h2 id="title">Counter</h2>
-          <h3 id="counter">{this.state.count}</h3>
-          <div className="btn-container">
-            <button id="add" onClick={this.addToCounter}>Add Count</button>
-            <button id="lower" onClick={this.minusFromCounter}>Lower Count</button>
-          </div>
-        </div>
-      </section>
+      <div>
+       :شما مجاز به ورود  {this.state.age>18 ? "yes" : "no"}
+      </div>
     )
+
   }
 }
 
