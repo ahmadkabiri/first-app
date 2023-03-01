@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import Form from './components/Form/Form'
+import Quiz from './components/Quiz/Quiz'
 
 export default class App extends Component {
     render() {
         return (
             <div>
-                <Form />
+                <Quiz />
             </div>
         )
     }
