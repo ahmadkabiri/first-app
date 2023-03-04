@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Shop from './components/Shop/Shop'
 import './App.css'
 import { Alert } from 'react-bootstrap'
-import { Card , Button ,Modal } from 'react-bootstrap'
-
+import { Container, Row , Col , Button ,Modal } from 'react-bootstrap'
+import Menus from './components/Menues/Menus'
 export default class App extends Component {
 
     state = {
@@ -12,23 +12,24 @@ export default class App extends Component {
 
     render() {
         return (
-            <div>
-                <Modal centered show={this.state.showModal} onHide={() => this.setState({showModal:false})}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Modal title</Modal.Title>
-                    </Modal.Header>
+            // <div>
+            //     <Container>
+            //         <Row>
+            //             <Col xs={12} sm={6} md={4}>1</Col>
+            //             <Col xs={12} sm={6} md={4}>2</Col>
+            //             <Col xs={12} sm={6} md={4}>3</Col>
 
-                    <Modal.Body>
-                        <p>Modal body text goes here.</p>
-                    </Modal.Body>
+            //         </Row>
+            //     </Container>
+            // </div>
 
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={() => this.setState({showModal:false})}>Close</Button>
-                        <Button variant="primary">Save changes</Button>
-                    </Modal.Footer>
-                </Modal>
-                <Button onClick={() => this.setState({showModal:true})}>Reomve File</Button>
-            </div>
+            <Container fluid>
+                <Row>
+                    <Menus></Menus>
+                    <Col></Col>
+                    <Col></Col>
+                </Row>
+            </Container>
         )
     }
 }
