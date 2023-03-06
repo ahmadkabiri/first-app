@@ -4,6 +4,9 @@ import './App.css'
 import { Alert } from 'react-bootstrap'
 import { Container, Row , Col , Button ,Modal } from 'react-bootstrap'
 import Menus from './components/Menues/Menus'
+import RightSide from './components/RightSide/RightSide'
+import LeftSide from './components/LeftSide/LeftSide'
+
 export default class App extends Component {
 
     state = {
@@ -26,8 +29,14 @@ export default class App extends Component {
             <Container fluid>
                 <Row>
                     <Menus></Menus>
-                    <Col></Col>
-                    <Col></Col>
+                    <Col xs={12} md={6}>
+                    <LeftSide>
+
+                    </LeftSide>
+                    </Col>
+                    <Col xs={12} md={6}>
+                    <RightSide></RightSide>
+                    </Col>
                 </Row>
             </Container>
         )
