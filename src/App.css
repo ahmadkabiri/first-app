@@ -1,340 +1,175 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
-@import url("https://fonts.googleapis.com/css?family=Metal+Mania");
-
-@font-face {
-    font-family: "Booter - Zero Zero";
-    src: url("components/Shop/Fonts/Booter-ZeroZero.woff") format("woff"),
-         url("components/Shop/Fonts/Booter-ZeroZero.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-}
-
 * {
-    box-sizing: border-box;
-    font-family: Raleway;
-    color: #777;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
+*:focus,
+*:active {
+  outline: 0 !important;
+  box-shadow: 0 !important;
 }
 
-.nav ul {
-    margin: 0;
+body {
+  background: rgb(68, 100, 173);
+  background: linear-gradient(
+    100deg,
+    rgba(68, 100, 173, 1),
+    rgba(74, 21, 110, 1)
+  );
+  color: white;
+  min-height: 100vh;
+  margin-bottom: 2rem;
 }
 
-.nav li {
-    display: inline;
+header {
+  text-shadow: 2px 2px 15px rgb(176, 230, 255);
+  font-size: 1.2rem;
 }
 
-.nav a {
-    display: inline-block;
-    padding: .5em;
-    color: white;
-    text-decoration: none;
+header,
+form {
+  min-height: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.main-nav {
-    text-align: center;
-    font-size: 1.1em;
-    font-weight: lighter;
-    border-bottom: 1px solid rgba(255, 255, 255, .3)
+form input,
+form button {
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  font-size: 1.8rem;
+  border: none;
+
+  background: #f4f4f4;
 }
 
-.main-nav li {
-    padding: 0 5%;
+form button {
+  padding: 0.5rem 1rem;
+  color: rgba(74, 21, 110, 1);
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.nav a:hover {
-    background-color: rgba(255, 255, 255, .3)
+form button:hover {
+  background: rgba(74, 21, 110, 1);
+  color: white;
 }
 
-.main-header {
-    background-color: rgba(0, 0, 0, .6);
-    background-image: url("components/Shop/images/Header\ Background.jpg");
-    background-blend-mode: multiply;
-    background-size: cover;
-    padding-bottom: 30px;
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.band-name {
-    text-align: center;
-    margin: 0;
-    font-size: 4em;
-    font-family: "Booter - Zero Zero";
-    font-weight: normal;
-    color: white;
+.todo-list {
+  min-width: 30%;
+  list-style: none;
 }
 
-.band-name-large {
-    font-size: 8em;
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem;
+  background: white;
+  font-size: 1.5rem;
+  transition: all 0.5s ease;
 }
 
-.content-section {
-    margin: 1em;
+form input,
+.todo {
+  color: rgb(88, 87, 87);
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 1.5em;
-}
-.section-header {
-    font-family: "Metal Mania";
-    font-weight: normal;
-    color: #333;
-    text-align: center;
-    font-size: 2.5em;
+.todo li {
+  flex: 1;
 }
 
-.about-band-image {
-    float: left;
-    height: 200px;
-    width: 200px;
-    margin: 15px;
-    border-radius: 50%;
+.trash-btn,
+.check-btn {
+  background-color: rgba(74, 21, 110, 1);
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: 0.2s all ease;
 }
 
-.main-footer {
-    background-color: #56CCF2;
-    color: white;
-    padding: .25em 0;
+.check-btn {
+  background-color: rgba(68, 100, 173, 1);
 }
 
-.main-footer-container {
-    display: flex;
-    align-items: center;
+.check-btn:hover {
+  background-color: rgba(68, 100, 173, 1);
+  color: white;
 }
 
-.main-footer-container ul {
-    flex-grow: 1;
-    text-align: end;
+.trash-btn:hover {
+  color: white;
+  background-color: rgba(74, 21, 110, 1);
 }
 
-.footer-nav li {
-    padding: 0 .5em;
+.todo-item {
+  padding: 0rem 1.2rem;
 }
 
-.footer-nav img {
-    width: 30px;
-    height: 30px;
+.fa-trash,
+.fa-check {
+  pointer-events: none;
 }
 
-.btn {
-    text-align: center;
-    vertical-align: middle;
-    padding: .67em .67em;
-    cursor: pointer;
+.completed {
+  opacity: 0.6;
+  text-decoration: line-through;
 }
 
-.btn-header {
-    margin: .5em 15% 2em 15%;
-    color: white;
-    border: 2px solid #2D9CDB;
-    background-color: rgba(255, 255, 255, .1);
-    border-radius: 0;
-    font-size: 1.5em;
-    font-weight: lighter;
-    padding-left: 2em;
-    padding-right: 2em;
+.fall {
+  animation: fall-apart 0.5s ease-out;
 }
 
-.btn-header:hover {
-    background-color: rgba(255, 255, 255, .3);
+@keyframes fall-apart {
+  100% {
+    transform: rotateZ(20deg) translateY(8rem);
+    opacity: 0;
+  }
 }
 
-.btn-play {
-    display: block;
-    margin: 0 auto;
-    color: #2D9CDB;
-    font-size: 4em;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    padding: 0;
-    text-align: center;
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+  font-size: 1.2em;
+  color: rgba(74, 21, 110, 1);
+  width: 15rem;
+  cursor: pointer;
+  padding: 1rem;
 }
 
-.btn-primary {
-    color: white;
-    background-color: #56CCF2;
-    border: none;
-    border-radius: .3em;
-    font-weight: bold;
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.btn-primary:hover {
-    background-color: #2D9CDB;
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  background: rgba(74, 21, 110, 1);
+  top: 0;
+  right: 0;
+  padding: 1.2rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
 
-.tour-row {
-    border-bottom: 1px solid black;
-    padding-bottom: 1em;
-    margin-bottom: 1em;
-}
-
-.tour-row:last-child {
-    border: none;
-}
-
-.tour-item {
-    display: inline-block;
-    padding-right: .5em;
-}
-
-.tour-date {
-    color: #555;
-    width: 11%;
-    font-weight: bold;
-}
-
-.tour-city {
-    width: 24%;
-}
-
-.tour-arena {
-    width: 42%;
-}
-
-.tour-btn {
-    max-width: 19%;
-}
-
-.shop-item {
-    margin: 30px;
-}
-
-.shop-item-title {
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.shop-item-image {
-    height: 250px;
-}
-
-.shop-item-details {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-}
-
-.shop-item-price {
-    flex-grow: 1;
-    color: #333;
-}
-
-.shop-items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.cart-header {
-    font-weight: bold;
-    font-size: 1.25em;
-    color: #333;
-}
-
-.cart-column {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid black;
-    margin-right: 1.5em;
-    padding-bottom: 10px;
-    margin-top: 10px;
-}
-
-.cart-row {
-    display: flex;
-}
-
-.cart-item {
-    width: 45%;
-}
-
-.cart-price {
-    width: 20%;
-    font-size: 1.2em;
-    color: #333;
-}
-
-.cart-quantity {
-    width: 35%;
-}
-
-.cart-item-title {
-    color: #333;
-    margin-left: .5em;
-    font-size: 1.2em;
-}
-
-.cart-item-image {
-    width: 75px;
-    height: auto;
-    border-radius: 10px;
-}
-
-.btn-danger {
-    color: white;
-    background-color: #EB5757;
-    border: none;
-    border-radius: .3em;
-    font-weight: bold;
-}
-
-.btn-danger:hover {
-    background-color: #CC4C4C;
-}
-
-.cart-quantity-input {
-    height: 34px;
-    width: 50px;
-    border-radius: 5px;
-    border: 1px solid #56CCF2;
-    background-color: #eee;
-    color: #333;
-    padding: 0;
-    text-align: center;
-    font-size: 1.2em;
-    margin-right: 25px;
-}
-
-.cart-row:last-child {
-    border-bottom: 1px solid black;
-}
-
-.cart-row:last-child .cart-column {
-    border: none;
-}
-
-.cart-total {
-    text-align: end;
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
-.cart-total-title {
-    font-weight: bold;
-    font-size: 1.5em;
-    color: black;
-    margin-right: 20px;
-}
-
-.cart-total-price {
-    color: #333;
-    font-size: 1.1em;
-}
-
-.btn-purchase {
-    display: block;
-    margin: 40px auto 80px auto;
-    font-size: 1.75em;
+.select:hover::after {
+  background-color: white;
+  color: rgba(74, 21, 110, 1);
 }
