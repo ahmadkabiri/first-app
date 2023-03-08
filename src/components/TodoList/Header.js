@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-export default class Header extends Component {
-    render() {
+export default function Header () {
+
         return (
 
             <header>
@@ -9,5 +9,4 @@ export default class Header extends Component {
             </header>
 
         )
-    }
-}
+ }

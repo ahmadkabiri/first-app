@@ -1,65 +1,32 @@
 import React, { Component } from 'react'
 
-export default class Todo extends Component {
+export default function Todo (props) {
 
-    constructor (props) {
-        super(props)
 
-        console.log('Todo.js => constructor');
-        this.state = {
-            todoId: null,
-            todoCompleted: null,
-            todoTitle: ''
-        }
-    }
-    
-    static getDerivedStateFromProps (props, state) {
-        console.log('Todo.js => getDerivedStateFromProps', props, state);
-        console.log('Todo.js => getDerivedStateFromProps');
-
-        return {
-            todoId: props.id,
-            todoCompleted: props.completed,
-            todoTitle: props.title
-        }
-
-        // this.setState({
-        //     todoId: props.id,
-        //     todoCompleted: props.completed,
-        //     todoTitle: props.title
-        // })
+    const removeClickHandler = (id) => {
+        props.onRemove(id)
     }
 
-    removeClickHandler (id) {
-        this.props.onRemove(id)
+    const  editClickHandler = (id) => {
+        props.onEdit(id)
     }
 
-    editClickHandler (id) {
-        this.props.onEdit(id)
-    }
 
-    componentDidMount () {
-        console.log("App.js => componentDidMount")
-    }
-
-    render() {
-        
-        console.log("todo.js => render")
 
 
         return (
             // 'completed' class for completed todos
-            <div className={`todo ${this.state.todoCompleted ? 'completed' : ''}`} style={{ display: 'flex' }}>
-                <li className="todo-item">{this.state.todoTitle}</li>
+            <div className={`todo ${props.completed ? 'completed' : ''}`} style={{ display: 'flex' }}>
+                <li className="todo-item">{props.title}</li>
 
-                <button className="check-btn"  onClick={this.editClickHandler.bind(this, this.state.todoId)}>
+                <button className="check-btn"  onClick={() => editClickHandler(props.id)}>
                     <i className="fas fa-check" aria-hidden="true"></i>
                 </button>
 
-                <button className="trash-btn" onClick={this.removeClickHandler.bind(this, this.state.todoId)}>
+                <button className="trash-btn" onClick={() => removeClickHandler(props.id)}>
                     <i className="fas fa-trash" aria-hidden="true"></i>
                 </button>
             </div>
         )
-    }
+
 }
