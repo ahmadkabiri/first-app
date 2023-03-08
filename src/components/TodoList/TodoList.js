@@ -35,7 +35,6 @@ export default class TodoList extends Component {
 
     addTodo(event) {
         event.preventDefault()
-
         let newTodoObject = {
             id: this.state.todos.length + 1,
             title: this.state.todoTitle,
