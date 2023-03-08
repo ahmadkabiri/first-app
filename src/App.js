@@ -1,16 +1,12 @@
-import React, { Component , useState } from 'react'
-import TodoList from './components/TodoList/TodoList'
+import React, { Component } from 'react'
+import Shop from './components/Shop/Shop'
 import './App.css'
-import { Table , Container, Alert } from 'react-bootstrap'
 
+export default function App() {
 
-
-
-export default function App () {
-    
-  return (
-    <div>
-        <TodoList></TodoList>
-    </div>
-  )
+    return (
+        <div>
+            <Shop />
+        </div>
+    )
 }
