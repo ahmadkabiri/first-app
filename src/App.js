@@ -94,18 +94,36 @@ export default function App() {
     const [users,setUsers] = useState([
         {id: 1 , name: "Mohammad" , age : 21} ,
         {id: 2 , name: "Ali" , age : 23} ,
-        {id: 3 , name: "Amin" , age : 27} ,
-        {id: 4 , name: "Amir" , age : 12 } ,
+        {id: 3 , name: "MMD" , age : 27} ,
+        {id: 4 , name: "BABAK" , age : 12 } ,
     ])
 
     const plusCount =  () => {
-        setCount (count + 1)
+        // setCount (count + 1)
+        setCount(prevState => {
+            return prevState + 1
+        } )
     }
 
     const minusCount =  () => {
-        setCount (count - 1)
+        // setCount (count - 1)
+        setCount(prevState => {
+            return prevState - 1
+        } )
 
     }
+
+
+    const removeUser = (userId) => {
+        
+        setUsers(prevState => {
+            let newUsers =  prevState.filter(user => {
+                return user.id !== userId
+            })
+            return newUsers
+        })
+    }
+
 
   return (
     <div>
@@ -115,7 +133,7 @@ export default function App() {
         <hr />
         <ul>
             {users.map((user) => (
-                <li key={user.id}>{user.name} - {user.age}</li>
+                <li key={user.id}>{user.name} - {user.age} <button onClick={() => removeUser(user.id)}>Remove</button></li>
             ) )}
         </ul>
     </div>
