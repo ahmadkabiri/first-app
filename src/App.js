@@ -1,12 +1,23 @@
-import React, { Component } from 'react'
-import Shop from './components/Shop/Shop'
+import React from 'react'
 import './App.css'
+import User from './User/User'
 
-export default function App() {
+export default class App extends React.Component {
 
-    return (
-        <div>
-            <Shop />
-        </div>
-    )
+    constructor(props){
+        super(props)
+    }
+
+
+
+    render () {
+        return (
+            <div>
+    
+                <User></User>
+    
+            </div>
+        )
+
+    }
 }
