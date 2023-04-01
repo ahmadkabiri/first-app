@@ -1,23 +1,12 @@
-import React from 'react'
-import './App.css'
-import User from './User/User'
+import React, { Component } from 'react'
+import Form from './components/Form/Form'
 
-export default class App extends React.Component {
-
-    constructor(props){
-        super(props)
-    }
-
-
-
-    render () {
+export default class App extends Component {
+    render() {
         return (
             <div>
-    
-                <User></User>
-    
+                <Form />
             </div>
         )
-
     }
 }
