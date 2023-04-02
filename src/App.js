@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Shop from './components/Shop/Shop'
+import TodoList from './components/TodoList/TodoList'
 import './App.css'
 
 export default class App extends Component {
@@ -7,7 +7,7 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                <Shop />
+                <TodoList></TodoList>
             </div>
         )
     }
