@@ -42,15 +42,17 @@ export default class AddForm extends Component {
 
     submitHandler (event) {
         event.preventDefault()
+        
+        let {title,author,year} = this.state
 
-        if (this.state.year.length && this.state.author.length && this.state.year.length){
+        if (year.length && author.length && year.length){
 
 
             let newBook = {
                 id: this.state.books.length + 1 ,
-                title : this.state.title ,
-                author : this.state.author ,
-                year : this.state.year 
+                title,
+                author,
+                year
             }
 
             let allBooks = [...this.state.books]
