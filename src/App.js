@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
-import NoteApp from './components/NoteApp/NoteApp'
-import './App.css'
+import  Alert  from 'react-bootstrap/Alert'
+import  Button  from 'react-bootstrap/Button'
+
 
 export default class App extends Component {
 
     render() {
         return (
             <div>
-                <NoteApp />
+                <h1>Hello SabzLearn</h1>
+                <Alert variant='secondary'> Your Wellcome <Alert.Link>Panel</Alert.Link> </Alert>
+                <Button variant='danger'> Cancel</Button>
             </div>
         )
     }
