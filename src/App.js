@@ -1,12 +1,14 @@
-import React, { Component } from 'react'
-import Form from './components/Form/Form'
+import React from 'react'
+import Shop from './components/Shop/Shop'
+import './App.css'
 
-export default class App extends Component {
-    render() {
+export default function App() {
+
+    
         return (
             <div>
-                <Form />
+                <Shop />
             </div>
         )
-    }
+    
 }
