@@ -4,18 +4,16 @@ import Home from './component/Home'
 import About from './component/About'
 import Contact from './component/Contact'
 import Products from './component/Products'
+import Posts from './component/Posts'
+import MainPost from './component/MainPost'
 
 
 export default function App() {
         return (
           <>
           <Routes>
-            <Route path='/' element={<h1>I am main route</h1>}></Route>
-            <Route path='/home' element={<Home></Home>}></Route>
-            <Route path='/about' element={<About></About>}></Route>
-            <Route path='/contact' element={<Contact></Contact>}></Route>
-            <Route path='/products' element={<Products></Products>}></Route>
-
+            <Route path='/posts' element={<Posts></Posts>}></Route>
+            <Route path='/post/:id' element={<MainPost></MainPost>}></Route>
           </Routes>
           </>
         )
