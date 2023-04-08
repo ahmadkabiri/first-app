@@ -1,18 +1,17 @@
-import React ,{useState,useEffect} from 'react'
-import {Routes,Route} from 'react-router-dom'
-import Posts from './component/Posts'
-import MainPost from './component/MainPost'
-import NotFound from './component/NotFound'
-
+import React from 'react'
+import {Routes, Route} from 'react-router-dom'
+import Header from './components/Header'
+import Courses from './components/Courses'
+import MainCourse from './components/MainCourse'
 
 export default function App() {
-        return (
-          <>
-          <Routes>
-            <Route path='/posts' element={<Posts></Posts>}></Route>
-            <Route path='/post/:id' element={<MainPost></MainPost>}></Route>
-            <Route path='*' element={<NotFound></NotFound>}></Route>
-          </Routes>
-          </>
-        )
+    return (
+        <>
+        <Header />
+        <Routes>
+            <Route path='/courses' element={<Courses />} />
+            <Route path='/course/:courseID' element={<MainCourse></MainCourse>}></Route>
+        </Routes>
+        </>
+    )
 }
