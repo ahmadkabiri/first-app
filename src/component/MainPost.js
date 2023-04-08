@@ -1,16 +1,29 @@
 import React , {useState} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 import posts from './Datas'
+
 
 export default function MainPost() {
 
     let {id} = useParams() 
     const[postss,setPosts] = useState(posts)
-    console.log(postss.find(post => post.id === Number(id)))
+    
+    let hasPost = postss.some(post=> post.id === Number(id))
+
+    console.log(hasPost)
 
   return (
     <div>
-        MainPost : {postss.find(post=> post.id===Number(id)).title}
+        {hasPost ? (
+            <>
+            MainPost : {postss.find(post=> post.id===Number(id)).title}
+            </>
+            
+        ) : (
+            <>
+            <Navigate to="/posts"></Navigate>
+            </>
+        ) }
     </div>
   )
 }

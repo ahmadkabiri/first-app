@@ -1,11 +1,8 @@
 import React ,{useState,useEffect} from 'react'
 import {Routes,Route} from 'react-router-dom'
-import Home from './component/Home'
-import About from './component/About'
-import Contact from './component/Contact'
-import Products from './component/Products'
 import Posts from './component/Posts'
 import MainPost from './component/MainPost'
+import NotFound from './component/NotFound'
 
 
 export default function App() {
@@ -14,6 +11,7 @@ export default function App() {
           <Routes>
             <Route path='/posts' element={<Posts></Posts>}></Route>
             <Route path='/post/:id' element={<MainPost></MainPost>}></Route>
+            <Route path='*' element={<NotFound></NotFound>}></Route>
           </Routes>
           </>
         )
