@@ -1,7 +1,7 @@
 import React from 'react'
 import { isLogin } from './../utils'
 import { Navigate } from 'react-router-dom';
-
+import { Outlet } from 'react-router-dom';
 
 
 export default function PrivateRoute ({children}) {
@@ -13,7 +13,8 @@ export default function PrivateRoute ({children}) {
     <div>
         {
             isUserLogin ? (
-                children
+                // children
+                <Outlet></Outlet>
             ) : (
                 <Navigate to="/login"></Navigate>
             )

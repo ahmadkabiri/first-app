@@ -23,8 +23,14 @@ let routes = [
       },
     ],
   },
+  // { path: "/login", element: <Login /> },
+  // { path: "/panel", element:<PrivateRoute>  <Panel /> </PrivateRoute> },
+  // { path: "/dashboard", element:<PrivateRoute>  <Dashboard /> </PrivateRoute> },
   { path: "/login", element: <Login /> },
-  { path: "/panel", element:<PrivateRoute>  <Panel /> </PrivateRoute> },
+  { path: "/*", element:<PrivateRoute/> , children : [
+    {path: "panel" , element: <Panel/> },
+    {path:"dashboard" , element : <Dashboard/>}
+  ] },
   { path: "/dashboard", element:<PrivateRoute>  <Dashboard /> </PrivateRoute> },
 ];
 
