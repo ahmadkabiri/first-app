@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
-import Form from './components/Form/Form'
-import Users from './components/Form/Users/Users'
+import routes from './routes'
+import { useRoutes } from 'react-router-dom'
 
-export default class App extends Component {
-    render() {
+
+
+export default function App () {
+
+    let router = useRoutes(routes)
+
         return (
             <div>
-                < Users/>
+                {router}
             </div>
         )
-    }
+    
 }
