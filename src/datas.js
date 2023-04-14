@@ -40,4 +40,39 @@ const newMembers = [
   },
 ];
 
-export { xAxisData, newMembers };
+const transActions = [
+  {
+    id: 1,
+    customer: "Qadir Yolme",
+    date: "12 Jun 2022",
+    amount: 122,
+    status: "Declined",
+    img: "images/npm.png",
+  },
+  {
+    id: 2,
+    customer: "Ali Kabiri",
+    date: "19 Dec 2022",
+    amount: 120,
+    status: "Approved",
+    img: "images/npm.png",
+  },
+  {
+    id: 3,
+    customer: "Mohmmad Qolami",
+    date: "5 May 2022",
+    amount: 57,
+    status: "Pending",
+    img: "images/npm.png",
+  },
+  {
+    id: 4,
+    customer: "Ahmad Kabiri",
+    date: "30 Jul 2022",
+    amount: 195,
+    status: "Declined",
+    img: "images/npm.png",
+  },
+];
+
+export { xAxisData, newMembers , transActions };

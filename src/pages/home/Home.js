@@ -4,6 +4,7 @@ import './Home.css'
 import Chart from "../../components/chart/Chart";
 import { xAxisData } from "../../datas";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
+import WidgetLg from "../../components/widgetLg/WidgetLg.js";
 export default function Home() {
   return (
     <div className="home">
@@ -11,6 +12,7 @@ export default function Home() {
       <Chart grid title="Month Sale" data={xAxisData} dataKey="Sale"></Chart>
       <div className="homeWidgets">
         <WidgetSm></WidgetSm>
+        <WidgetLg></WidgetLg>
       </div>
     </div>
   )
