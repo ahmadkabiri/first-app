@@ -75,4 +75,39 @@ const transActions = [
   },
 ];
 
-export { xAxisData, newMembers , transActions };
+let userRows = [
+  {
+    id: 1,
+    userName: "Qadir Yolme",
+    avatar: "images/npm.png",
+    email:"Ahmadkabiriw@gmail.com",
+    status: "active",
+    transaction: "$129.5",
+  },
+  {
+    id: 2,
+    userName: "Ahmad Kabiri",
+    avatar: "images/npm.png",
+    email:"Alikabiriw@gmail.com",
+    status: "non-active",
+    transaction: "$300",
+  },
+  {
+    id: 3,
+    userName: "Ali yaqubi",
+    avatar: "images/npm.png",
+    email:"navidgba@gmail.com",
+    status: "active",
+    transaction: "$12",
+  },
+  {
+    id: 4,
+    userName: "Hossain rahimi",
+    avatar: "images/npm.png",
+    email:"hasantrc@gmail.com",
+    status: "active",
+    transaction: "$500",
+  },
+];
+
+export { xAxisData, newMembers, transActions ,userRows };
