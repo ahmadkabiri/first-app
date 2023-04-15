@@ -1,17 +1,11 @@
-import React, { useState } from "react";
-import useCounter from "./hooks/useCounter";
-
+import { useState, useEffect } from "react";
+import useLocalStorage from "./hooks/useLocalStorage";
 export default function App() {
 
-const [count , addCount , minusCount] = useCounter(20)
-
-
- 
+  const [value , setValue] = useLocalStorage('sabz',"ttt")
   return (
     <div className="App">
-      <p>{count}</p>
-      <button onClick={()=>addCount()}>Add</button>
-      <button onClick={() => minusCount()}>Minus</button>
+      <input type="text" value={value} onChange={(event)=>setValue(event.target.value)} />
     </div>
   );
 }
