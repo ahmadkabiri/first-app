@@ -1,15 +1,17 @@
-import React from "react";
-import useFetch from "./hooks/useFetch";
+import React, { useState } from "react";
+import useCounter from "./hooks/useCounter";
 
 export default function App() {
 
-  const {error , loading , data} = useFetch('https://jsonplaceholder.typicode.com/users')
+const [count , addCount , minusCount] = useCounter(20)
+
+
  
   return (
     <div className="App">
-      {loading && <p>loading...</p>}
-      {error && <p>{error}</p>}
-      {data && <p>{data.map(user => <li key={user.id}>{user.name}</li> )}</p>}
+      <p>{count}</p>
+      <button onClick={()=>addCount()}>Add</button>
+      <button onClick={() => minusCount()}>Minus</button>
     </div>
   );
 }
