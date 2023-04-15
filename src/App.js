@@ -1,19 +1,34 @@
 import React from "react";
-import routes from "./routes";
-import { useRoutes } from "react-router-dom";
-import Topbar from "./components/topbar/Topbar";
-import Sidebar from "./components/sidebar/Sidebar";
-import './App.css'
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 export default function App() {
-  let router = useRoutes(routes);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    setLoading(true);
+    setUser(null);
+    setError(null);
+
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        setLoading(false);
+        setUser(res.data)
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(err.message)
+      });
+  }, []);
 
   return (
-    <>
-      <Topbar></Topbar>
-      <div className="container-items">
-        <Sidebar></Sidebar>
-        {router}
-      </div>
-    </>
+    <div className="App">
+      {loading && <p>loading...</p>}
+      {error && <p>{error}</p>}
+      {user && <p>user loaded !</p>}
+    </div>
   );
 }
