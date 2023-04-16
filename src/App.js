@@ -11,10 +11,8 @@ export default function App() {
     };
 
     setNotes((prevNotes) => [...prevNotes, newNoteObj]);
-    setNewNote('')
+    setNewNote("");
   };
-
-
 
   return (
     <div>
@@ -35,11 +33,27 @@ export default function App() {
       </ul>
       <hr />
       <h3>Js Included Note</h3>
-      {useMemo(()=>{
-        return notes.filter(note => note.title.toLowerCase().includes("js")).map(note=> (
-          <li>{note.id} - {note.title}</li>
-        ))
-      },[notes])}
+      <FilterdNotes notesArray={notes}></FilterdNotes>
     </div>
   );
 }
+
+const FilterdNotes = ({ notesArray }) => {
+  return (
+    <>
+      {useMemo(() => {
+        notesArray
+          .filter((note) => {
+            return note.title.toLowerCase().includes("js");
+          })
+          .map((note) => (
+            <div key={note.id}>
+              <li>
+                {note.id}-{note.title}
+              </li>
+            </div>
+          ));
+      }, [notesArray])}
+    </>
+  );
+};
