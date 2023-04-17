@@ -1,59 +1,46 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo ,memo, useCallback } from "react";
 // import "./App.css";
 export default function App() {
-  const [notes, setNotes] = useState([]);
-  const [newNote, setNewNote] = useState("");
+  const [counter, setCounter] = useState(0);
 
-  const addNewNote = () => {
-    let newNoteObj = {
-      id: notes.length + 1,
-      title: newNote,
-    };
+  const [title, setTitle] = useState("");
 
-    setNotes((prevNotes) => [...prevNotes, newNoteObj]);
-    setNewNote("");
-  };
+  console.log("App run")
+
+  const addCounter = useCallback(() => {
+    setCounter((prevCount) => prevCount + 1);
+  },[counter]);
+
+  const minusCounter =useCallback(() => {
+    setCounter((prevCount) => prevCount - 1);
+  },[counter]);
 
   return (
     <div>
       <input
         type="text"
-        value={newNote}
-        onChange={(event) => setNewNote(event.target.value)}
+        value={title}
+        onChange={(event) => setTitle(event.target.value)}
       />
-      <button onClick={addNewNote}>Add New Note</button>
-      <hr />
-      <h3>All Notes</h3>
-      <ul>
-        {notes.map((note) => (
-          <li key={note.id}>
-            {note.id} - {note.title}
-          </li>
-        ))}
-      </ul>
-      <hr />
-      <h3>Js Included Note</h3>
-      <FilterdNotes notesArray={notes}></FilterdNotes>
+      <Title title={title}></Title>
+      <h3>{counter}</h3>
+      <Buttons add={addCounter} minus={minusCounter}></Buttons>
     </div>
   );
 }
 
-const FilterdNotes = ({ notesArray }) => {
+const Title =memo(({ title }) => {
+  console.log("title run");
+  return <h3>{title}</h3>;
+});
+
+const Buttons = memo(({ add, minus }) => {
+  console.log("buttons run");
+
   return (
     <>
-      {useMemo(() => {
-        notesArray
-          .filter((note) => {
-            return note.title.toLowerCase().includes("js");
-          })
-          .map((note) => (
-            <div key={note.id}>
-              <li>
-                {note.id}-{note.title}
-              </li>
-            </div>
-          ));
-      }, [notesArray])}
+      <button onClick={add}>Add</button>
+      <button onClick={minus}>Minus</button>
     </>
   );
-};
+});
