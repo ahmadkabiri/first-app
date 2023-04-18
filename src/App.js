@@ -1,28 +1,25 @@
 import { useState, useRef, useEffect } from "react";
 // import "./App.css";
 export default function App() {
+  const [title, setTitle] = useState("");
+  const [rendersCount,setRendersCount] = useState(1)
 
+  // const rendersCount = useRef(1) //{current:1}
 
-  const [course,setCourse] = useState("js")
-
-  const courseRef = useRef("npm")
-
- const chageState = () => {
-  setCourse("React Js")
- }
- const changeReff = () => {
-  courseRef.current = "vu js"
-  console.log(courseRef)
- }
+  useEffect(() => {
+    // rendersCount.current++
+    // setRendersCount(prevCount => prevCount+1)
+  })
 
   return (
     <div>
-      <h3>Course(state): {course}</h3>
-      <hr />
-      <h3>Course(Ref) : {courseRef.current}</h3>
-      <button onClick={changeReff}>Upadate reff</button>
-      <button onClick={chageState}>Update Course</button>
-      {console.log(courseRef.current)}
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      {/* <h3>input Value : {title} </h3> */}
+      <h3>Renders Count : {rendersCount}</h3>
     </div>
   );
 }
