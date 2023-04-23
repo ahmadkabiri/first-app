@@ -1,27 +1,28 @@
-import React, { useState } from "react";
+import React, { useId, useState } from "react";
 import { v4 as uuidv4 } from 'uuid'
 import "./App.css";
 
 function App() {
 
-  const [products,setProducts] = useState([
-    {id:uuidv4() , title:"laptop",price:40},
-    {id:uuidv4() , title:"mobile",price:40},
-    {id:uuidv4() , title:"Coolpad",price:40},
+  const usernameID = useId()
+  const passwordID = useId()
+  const lastnameID = useId()
 
-  ])
+
+  console.log("UserName ID", usernameID);
+  console.log("Password ID", passwordID);
+  console.log("LastName ID", lastnameID);
+
  
   return (
     <div>
-      <br /><br /><br /><br />
-      <ul>
-      {
-        products.map((product,index) => (
-          <li key={product.id}>{index+1}-{product.title}</li>
-        ))
-      }
-
-      </ul>
+    <form action="">
+      <label htmlFor={usernameID}>Your Username:</label>
+      <input type="text" id={usernameID}/>
+      <hr />
+      <label htmlFor={passwordID}>Your Password:</label>
+      <input type="text" id={passwordID} placeholder="Password" />
+    </form>
     </div>
   );
 }
