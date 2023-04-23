@@ -1,41 +1,28 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from 'uuid'
 import "./App.css";
-import menus from "./data";
-import Categories from "./Components/Categories";
-import Menu from './Components/Menu'
-
-const allCategories = ["all",...new Set(menus.map(menu => menu.category))]
 
 function App() {
 
-  console.log(allCategories)
+  const [products,setProducts] = useState([
+    {id:uuidv4() , title:"laptop",price:40},
+    {id:uuidv4() , title:"mobile",price:40},
+    {id:uuidv4() , title:"Coolpad",price:40},
 
-  const [allMenus, setAllMenus] = useState(menus);
-  const [categories , setCategories] = useState(allCategories);
-
-  const filterMenus = (category) => {
-    if (category === "all") {
-      setAllMenus(menus)
-      return 
-    }
-
-    let filteredMenus = menus.filter(menu => menu.category===category )
-
-    setAllMenus(filteredMenus)
-
-
-  }
+  ])
+ 
   return (
-    <main>
-      <section className="menu section">
-        <div className="title">
-          <h2>our menu</h2>
-          <div className="underline"></div>
-        </div>
-        <Categories categories={categories} filterMenus={filterMenus}></Categories>
-        <Menu allMenus={allMenus}></Menu>
-      </section>
-    </main>
+    <div>
+      <br /><br /><br /><br />
+      <ul>
+      {
+        products.map((product,index) => (
+          <li key={product.id}>{index+1}-{product.title}</li>
+        ))
+      }
+
+      </ul>
+    </div>
   );
 }
 
