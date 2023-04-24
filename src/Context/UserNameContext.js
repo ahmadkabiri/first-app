@@ -1,12 +1,14 @@
-import { createContext } from "react";
+import { createContext,useState } from "react";
 
 const UserNameContext = createContext();
 
-export default UserNameContext;
+export {UserNameContext};
 
 const UsernameProvider = ({ children }) => {
+  const [username, setUserName] = useState("Mohammad Amin");
+
   return (
-  <UserNameContext.Provider>
+  <UserNameContext.Provider value={username}>
     {children}
   </UserNameContext.Provider>
   )

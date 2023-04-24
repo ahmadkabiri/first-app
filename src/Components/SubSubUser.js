@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import UserNameContext from '../Context/UserNameContext'
+import {UserNameContext} from '../Context/UserNameContext'
 function SubSubUser() {
 
     const username = useContext(UserNameContext)

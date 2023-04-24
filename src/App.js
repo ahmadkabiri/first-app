@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import "./App.css";
 import User from "./Components/User";
-import UserNameContext from "./Context/UserNameContext";
+import UsernameProvider from "./Context/UserNameContext";
+
 
 
 function App() {
-  const [username, setUserName] = useState("Mohammad Amin");
 
-  console.log(UserNameContext)
+  // console.log(UserNameContext)
 
   return (
-    <UserNameContext.Provider value={username}>
+    <UsernameProvider >
     <div>
       <User/>
     </div>
-    </UserNameContext.Provider>
+    </UsernameProvider>
   );
 }
 
