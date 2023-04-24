@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from './Components/Navbar/Navbar'
 import ProductsSection from "./Components/ProductsSection/ProductsSection";
 import products from "./data/products";
-
+import Toast from "./Components/Toast/Toast";
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
 
         </div>
       </main>
+      <Toast></Toast>
     </div>
   );
 }
