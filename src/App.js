@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import "./App.css";
 import Navbar from './Components/Navbar/Navbar'
 import ProductsSection from "./Components/ProductsSection/ProductsSection";
-
+import products from "./data/products";
 
 
 function App() {
+
+  const [allProducts,setAllProducts] =  useState(products)
 
   return (
     <div>
@@ -13,10 +15,12 @@ function App() {
       <main className="pb-5">
         <div className="container">
           <h1 className="text-center main-title">All Products</h1>
-          <ProductsSection title='Phones'></ProductsSection>
-          <ProductsSection title='Laptops'></ProductsSection>
-          <ProductsSection title='Coolpads'></ProductsSection>
-          <ProductsSection title='Watches'></ProductsSection>
+          {
+            allProducts.map(product=>(
+              <ProductsSection {...product}></ProductsSection>
+            ))
+          }
+
         </div>
       </main>
     </div>
