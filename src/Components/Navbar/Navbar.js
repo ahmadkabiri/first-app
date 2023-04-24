@@ -8,7 +8,7 @@ function Navbar() {
            <a href="#" className="navbar-brand">
             Sabzlearn Shop
             </a> 
-            <ul className="navbar-nav me-auto-ms-3">
+            <ul className="navbar-nav me-auto ms-3">
                 <li className='nav-item'>
                     <a href="#" className='nav-link'>
                         Home
