@@ -1,12 +1,10 @@
-.main-title {
-  color:var(--main-red) ;
-  
+.main {
+  flex:4 ;
+  padding: 1.25rem;
+  padding-right: 17.5rem;
+  /* width: 100%;
+  background-color: blue; */
 }
-
-main{
-  margin-top: 110px;
-}
-
 
 
 
