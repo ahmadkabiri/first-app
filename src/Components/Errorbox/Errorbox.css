@@ -1,0 +1,9 @@
+.cms-empty-error{
+    font-size: 2rem;
+    background-color: #ff4f4f;
+    margin-top: 1.25rem;
+    padding: 1.25rem;
+    color: var(--white);
+    text-align: center;
+    /* width: 155%;  */
+}
