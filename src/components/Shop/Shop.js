@@ -9,7 +9,7 @@ export default function Shop() {
 
 
 
-        const [products,setProducts] = useState([
+        const [products] = useState([
             { id: 1, title: 'Album 1', price: 5, img: 'Images/Album 1.png' },
             { id: 2, title: 'Album 2', price: 15, img: 'Images/Album 2.png' },
             { id: 3, title: 'Album 3', price: 20, img: 'Images/Album 3.png' },
@@ -20,7 +20,7 @@ export default function Shop() {
 
         const [shoppingCart, setShopingCart ] = useState([])
 
-        const [socials , setSocialsProduct ] = useState([
+        const [socials] = useState([
             { id: 1, href: 'https://www.youtube.com', img: 'Images/YouTube Logo.png' },
             { id: 2, href: 'https://www.spotify.com', img: 'Images/Spotify Logo.png' },
             { id: 3, href: 'https://www.facebook.com', img: 'Images/FaceBook Logo.png' },
@@ -63,9 +63,9 @@ export default function Shop() {
                 <header className="main-header">
                     <nav className="main-nav nav">
                         <ul>
-                            <li><a href="#">HOME</a></li>
-                            <li><a href="#">STORE</a></li>
-                            <li><a href="#">ABOUT</a></li>
+                            <li><a href="#-">HOME</a></li>
+                            <li><a href="#-">STORE</a></li>
+                            <li><a href="#-">ABOUT</a></li>
                         </ul>
                     </nav>
                     <h1 className="band-name band-name-large">SabzLearn Shop</h1>
