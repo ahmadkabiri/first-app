@@ -68,7 +68,7 @@ export default function Shop() {
                             <li><a href="#-">ABOUT</a></li>
                         </ul>
                     </nav>
-                    <h1 className="band-name band-name-large">SabzLearn Shop</h1>
+                    <h1 className="band-name band-name-large">Kabiri Shop</h1>
                 </header>
                 <section className="container content-section">
                     <div className="shop-items">
