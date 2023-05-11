@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 export default function Social(props) {
     
@@ -7,8 +7,8 @@ export default function Social(props) {
 
         return (
             <li>
-                <a href={href} target="_blank">
-                    <img src={img} />
+                <a href={href} target="_blank" rel="noreferrer" >
+                    <img src={img} alt='img' />
                 </a>
             </li>
         )
