@@ -20,6 +20,12 @@
   visibility: visible;
 }
 
+.cms-main {
+  margin-top: 4rem;
+  padding: 1.25rem;
+  border-radius: 1.5rem;
+}
+
 .cms-table {
   margin-top: 1.25rem;
   width: 100%;
