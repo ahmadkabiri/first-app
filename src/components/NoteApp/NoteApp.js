@@ -87,7 +87,7 @@ export default class NoteApp extends Component {
                 <div>
                     <section id="home">
                         <div className="container">
-                            <div className="header upper">SabzLearn Note App</div>
+                            <div className="header upper">Kabiri Note App</div>
 
                             <br /><br />
                             <div className="flex row-gt-sm">
