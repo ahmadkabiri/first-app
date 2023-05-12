@@ -10,7 +10,7 @@ function ProductsSection({ title, infos }) {
             <div className="col-12 text-center">
               <img
                 src={product.img}
-                alt="Product image"
+                alt="Productimage"
                 className="card-img-top w-75"
               />
             </div>
@@ -18,10 +18,10 @@ function ProductsSection({ title, infos }) {
               <p className="card-text">{product.title}</p>
               <p className="price">{product.price}$</p>
               <br />
-              <a href="#" className="btn btn-danger">
+              <a href="#-" className="btn btn-danger">
                 Add To Cart
               </a>
-              <a href="" className="btn btn-outline-dark mt-3 text-capitalize">
+              <a href="#-" className="btn btn-outline-dark mt-3 text-capitalize">
                 More information
               </a>
               <p className="number">Number: {product.count}</p>

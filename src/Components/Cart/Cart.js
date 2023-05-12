@@ -24,11 +24,11 @@ function Cart() {
 
                 </div>
                 <div className="card-body d-flex flex-column justify-content-center align-items-center">
-                    <p className="card-text">lsdkdfj</p>
+                    <p className="card-text">گوشی</p>
                     <p className="price">120</p>
                     <br />
-                    <a href="#" className='btn btn-danger'>Buy</a>
-                    <a href="#" className='btn btn-outline-dark mt-3 text-capitalize'>
+                    <a href="#-" className='btn btn-danger'>Buy</a>
+                    <a href="#-" className='btn btn-outline-dark mt-3 text-capitalize'>
                         more information
                     </a>
                     <p className='number'>1</p>

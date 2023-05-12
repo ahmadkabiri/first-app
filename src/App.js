@@ -7,7 +7,7 @@ import Toast from "./Components/Toast/Toast";
 import Cart from "./Components/Cart/Cart";
 function App() {
 
-  const [allProducts,setAllProducts] =  useState(products)
+  const [allProducts] =  useState(products)
 
   return (
     <div>
