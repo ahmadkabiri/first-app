@@ -10,7 +10,7 @@ export default function UserList() {
   const [userDatas, setUserDatas] = useState(userRows);
 
   const userDelete = (userId) => {
-    setUserDatas(userDatas.filter(user =>user.id !=userId))
+    setUserDatas(userDatas.filter(user =>user.id !==userId))
   }
 
   const columns = [

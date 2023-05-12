@@ -10,7 +10,7 @@ export default function UserList() {
   const [productsData, setProductsData] = useState(products);
 
   const productsDelete = (userId) => {
-    setProductsData(productsData.filter(product =>product.id !=userId))
+    setProductsData(productsData.filter(product =>product.id !==userId))
   }
 
   const columns = [
