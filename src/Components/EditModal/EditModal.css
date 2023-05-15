@@ -1,47 +1,19 @@
-.edit-modal-form{
-    width: 25rem;
-    padding: 2rem;
+.edit-modal-form {
+    width: 400px;
+    padding: 30px;
     background-color: var(--white);
     text-align: center;
 }
 
 .edit-modal-form h1 {
     font-size: 1.4rem;
-
 }
 
-
 .edit-form-submit {
-    margin-top: 1.25rem;
+    margin-top: 20px;
     width: 100%;
-    padding: 0.5rem 0.65rem;
+    padding: 8px 10px;
     background-color: var(--blue);
     color: var(--white);
     font-size: 1.1rem;
-    outline: none;
-    border: none;
 }
-
-/* Start Edit modal childs style */
-
-.edit-products-form-group{
-    margin-top: 1rem ;
-    display: flex;
-    align-items: center;
-    column-gap: 0.65rem;
-    width: 100%;
-    background-color: #f4f4f4;
-    padding: 0 1.25rem;
-    border-radius: 0.65rem ;
-}
-
-.edit-product-input {
-    outline: none;
-    border: none;
-    background-color: unset;
-    font-size: 1.1rem;
-    width: 100%;
-    padding: 0.5rem 0.65rem;
-}
-
-/* Finish Edit modal childs style */

@@ -1,9 +1,9 @@
 import React from 'react'
-import "./Users.css"
-import Errorbox from '../Errorbox/Errorbox'
+import ErrorBox from '../Errorbox/Errorbox'
+
+
 export default function Users() {
   return (
-    
-    <Errorbox msg="هیچ کاربری یافت نشد"/>
+    <ErrorBox msg="هیچ کاربری یافت نشد" />
   )
 }

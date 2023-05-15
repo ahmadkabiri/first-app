@@ -1,52 +1,70 @@
 .products-table {
-  margin-top: 2rem;
-  width: 100%;
-  background-color: var(--white);
-  border-radius: 0.6rem;
+    margin-top: 30px;
+    width: 100%;
+    background-color: var(--white);
+    border-radius: 10px;
 }
 
 .products-table-heading-tr {
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 5.6rem 0 30rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 70px 0 460px;
 }
 
 .products-table-tr {
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 0.6rem 0 1.9rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 0 30px;
 }
 
 .products-table th {
-  padding: 1.25rem;
+    padding: 20px;
 }
 
 .products-table td {
-  padding: 1.25rem;
-  display: flex;
-  align-items: center;
+    padding: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .products-table-img {
-  width: 9rem;
-  border-radius: 0.6rem;
-  object-fit: cover;
+    width: 150px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 .products-table-btn {
-    padding: 0.5rem 1.25rem;
+    padding: 8px 20px;
     font-size: 1.1rem;
-    border-radius: 0.6rem;
+    border-radius: 10px;
     color: var(--white);
-    margin-right: 1.25rem;
     background-color: var(--blue);
-    outline: none;
-    border:none;
+    margin-right: 20px;
 }
 
 
+/* Start Edit Modal Childs Style */
 
+.edit-proructs-form-group {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    width: 100%;
+    background-color: #f4f4f4;
+    padding: 0 20px;
+    border-radius: 10px;
+}
 
+.edit-product-input {
+    outline: none;
+    border: none;
+    background-color: unset;
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 8px 10px;
+}
 
+/* Finish Edit Modal Childs Style */

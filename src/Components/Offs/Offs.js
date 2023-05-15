@@ -1,9 +1,8 @@
-import React from "react";
-import "./Offs.css";
-import Errorbox from "../Errorbox/Errorbox";
+import React from 'react'
+import ErrorBox from '../Errorbox/Errorbox'
+
 export default function Offs() {
   return (
-    
-    <Errorbox msg="هیچ  کد تخفیفی یافت نشد"/>
+    <ErrorBox msg="هیچ کد تخفیفی یافت نشد" />
   )
 }
