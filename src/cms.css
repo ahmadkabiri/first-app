@@ -13,6 +13,7 @@
     opacity: 0;
     visibility: hidden;
     transition: 0.4s;
+    overflow: scroll;
 }
 
 .modal-parent.active {
@@ -24,6 +25,10 @@
     margin-top: 60px;
     padding: 20px;
     border-radius: 25px;
+}
+.cms-title {
+    font-weight: bold;
+    font-size: 3rem;
 }
 
 .cms-table {
