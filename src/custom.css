@@ -20,3 +20,7 @@ body {
 *, body, html {
     font-family: Lalezar;
 }
+button{
+    border: none;
+    outline: none;
+}
