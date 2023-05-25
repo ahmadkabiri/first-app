@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 function SignUpForm() {
   //   const [userData, setUserData] = useState({
   //     name: "",
@@ -22,34 +23,42 @@ function SignUpForm() {
     console.log(values);
   };
   // 3.
-  const validate = (values) => {
-    console.log(values);
-    // errors => {}
-    //errors.name
-    //errors.email
-    //errors.password
+  // const validate = (values) => {
+  //   console.log(values);
+  //   // errors => {}
+  //   //errors.name
+  //   //errors.email
+  //   //errors.password
 
-    let errors = {};
+  //   let errors = {};
 
-    if (!values.name) {
-      errors.name="name is required"
-    }
-    if (!values.email) {
-      errors.email = "email is required"
-    }
-    if (!values.password) {
-      errors.password = "password is required"
-    }
-    return errors;
-  };
+  //   if (!values.name) {
+  //     errors.name = "name is required";
+  //   }
+  //   if (!values.email) {
+  //     errors.email = "email is required";
+  //   }
+  //   if (!values.password) {
+  //     errors.password = "password is required";
+  //   }
+  //   return errors;
+  // };
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string()
+      .email("Invalid email format")
+      .required("Email is required"),
+    password: Yup.string().required("Password is required"),
+  });
 
   const formik = useFormik({
     initialValues,
     onSubmit,
-    validate,
+    validationSchema,
   });
 
-    console.log(formik.errors);
+  console.log(formik.touched);
 
   //   const submitHandler = (e) => {
   //     e.preventDefault();
@@ -70,7 +79,11 @@ function SignUpForm() {
             value={formik.values.name}
             name="name"
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.errors.name && formik.touched.name && (
+            <div className="error">{formik.errors.name}</div>
+          )}
         </div>
         <div className="formControl">
           <label htmlFor="email">Email</label>
@@ -79,10 +92,14 @@ function SignUpForm() {
             type="text"
             // onChange={changeHandler}
             // value={userData.email}
-            value={formik.values.email}
             email="email"
+            value={formik.values.email}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.errors.email && formik.touched.email && (
+            <div className="error">{formik.errors.email}</div>
+          )}
         </div>
         <div className="formControl">
           <label htmlFor="password">Password</label>
@@ -91,10 +108,14 @@ function SignUpForm() {
             type="text"
             // onChange={changeHandler}
             // value={userData.password}
-            value={formik.values.password}
             name="password"
+            value={formik.values.password}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
+          {formik.errors.password && formik.touched.password && (
+            <div className="error">{formik.errors.password}</div>
+          )}
         </div>
         <button type="submit">submit</button>
       </form>
