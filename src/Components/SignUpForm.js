@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Input from "./common/Input";
+import RadioInput from "./common/RadioInput";
+
+const radioOptions = [
+  { lable: "male", value: "0" },
+  { lable: "female", value: "1" },
+];
+
 function SignUpForm() {
   //   const [userData, setUserData] = useState({
   //     name: "",
@@ -14,11 +22,11 @@ function SignUpForm() {
   //   };
 
   const savedData = {
-    name: "ahmad",
-    email: "ahmad@gmail.com",
-    password: "09121234567",
-    phoneNumber: "saheb12",
-    passwordConfirm: "saheb1234",
+    name: "ahmad kabiri",
+    email: "ahmadkabiriw@gmail.com",
+    password: "1111",
+    phoneNumber: "09028801466",
+    passwordConfirm: "1111",
     gender: "0",
   };
 
@@ -76,11 +84,11 @@ function SignUpForm() {
     gender: Yup.string().required("Gender is required"),
   });
 
-  const [formValues,setFormValues] = useState(null);
+  const [formValues, setFormValues] = useState(null);
 
   const formik = useFormik({
-    enableReinitialize:true ,
-    initialValues : formValues || initialValues ,
+    enableReinitialize: true,
+    initialValues: formValues || initialValues,
     onSubmit,
     validationSchema,
     validateOnMount: true,
@@ -114,6 +122,23 @@ function SignUpForm() {
             <div className="error">{formik.errors.name}</div>
           )}
         </div>
+        {/* <Input formik={formik} name="name" label="Name" />
+        <Input formik={formik} name="email" label="Email" />
+        <Input formik={formik} name="phoneNumber" label="Phone Number" />
+        <Input formik={formik} name="name" label="Name" />
+        <Input
+          formik={formik}
+          name="password"
+          label="Password"
+          type="password"
+        />
+        <Input
+          formik={formik}
+          name="passwordConfirm"
+          label="Password Confirm"
+        />
+         */}
+
         <div className="formControl">
           <label htmlFor="email">Email</label>
           <input
@@ -199,6 +224,7 @@ function SignUpForm() {
           />
           <label htmlFor="1">Female</label>
         </div>
+        {/* <RadioInput formik={formik} radioOptions={radioOptions} name="gender"></RadioInput> */}
         <button onClick={() => setFormValues(savedData)}>Load Data</button>
         <button type="submit" disabled={!formik.isValid}>
           submit
