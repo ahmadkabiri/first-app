@@ -12,6 +12,16 @@ function SignUpForm() {
   //     console.log(e.target.value);
   //     setUserData({ ...userData, [e.target.name]: e.target.value });
   //   };
+
+  const savedData = {
+    name: "ahmad",
+    email: "ahmad@gmail.com",
+    password: "09121234567",
+    phoneNumber: "saheb12",
+    passwordConfirm: "saheb1234",
+    gender: "0",
+  };
+
   // 1.
   const initialValues = {
     name: "",
@@ -19,7 +29,7 @@ function SignUpForm() {
     password: "",
     phoneNumber: "",
     passwordConfirm: "",
-    gender : ""
+    gender: "",
   };
   // 2.
   const onSubmit = (values) => {
@@ -63,11 +73,14 @@ function SignUpForm() {
       .required("Password Confirmation is required")
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
 
-    gender : Yup.string().required("Gender is required")
+    gender: Yup.string().required("Gender is required"),
   });
 
+  const [formValues,setFormValues] = useState(null);
+
   const formik = useFormik({
-    initialValues,
+    enableReinitialize:true ,
+    initialValues : formValues || initialValues ,
     onSubmit,
     validationSchema,
     validateOnMount: true,
@@ -173,7 +186,7 @@ function SignUpForm() {
             name="gender"
             value="0"
             onChange={formik.handleChange}
-            checked={formik.values.gender==="0"}
+            checked={formik.values.gender === "0"}
           />
           <label htmlFor="0">Male</label>
           <input
@@ -182,11 +195,11 @@ function SignUpForm() {
             name="gender"
             value="1"
             onChange={formik.handleChange}
-            checked={formik.values.gender==="1"}
-
+            checked={formik.values.gender === "1"}
           />
           <label htmlFor="1">Female</label>
         </div>
+        <button onClick={() => setFormValues(savedData)}>Load Data</button>
         <button type="submit" disabled={!formik.isValid}>
           submit
         </button>
