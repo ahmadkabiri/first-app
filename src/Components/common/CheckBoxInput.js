@@ -1,22 +1,24 @@
+import react from "react";
 import React from "react";
 
-function RadioInput({ name, formik, radioOptions }) {
+function CheckBoxInput({ name, formik, checkBoxOptions }) {
   return (
-    <div className="formControl ">
+    <div className="formControl">
       <label>{name.charAt(0).toUpperCase() + name.slice(1)}</label>
-      <div className="radio">
-        {radioOptions.map((item) => (
-          <React.Fragment key={item.value}>
+      <div className="check">
+        {checkBoxOptions.map((item) => (
+          <react.Fragment key={item.value}>
             <input
-              type="radio"
+              type="checkbox"
               id={item.value}
               name={name}
               value={item.value}
               onChange={formik.handleChange}
-              checked={formik.values[name] === item.value}
+              onClick={() => formik.setFieldTouched(name, true)}
+              checked={formik.values[name].includes(item.value)}
             />
             <label htmlFor={item.value}>{item.label}</label>
-          </React.Fragment>
+          </react.Fragment>
         ))}
         {formik.errors[name] && formik.touched[name] && (
           <div className="error"> {formik.errors[name]}</div>
@@ -26,4 +28,4 @@ function RadioInput({ name, formik, radioOptions }) {
   );
 }
 
-export default RadioInput;
+export default CheckBoxInput;

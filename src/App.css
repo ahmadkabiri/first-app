@@ -1,64 +1,115 @@
 .App {
-  padding-top: 30px;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 2rem 5rem;
 }
 
-label {
-  display: flex;
-  margin-bottom: 5px;
-  font-weight: 800;
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  height: 100%;
 }
 
-input {
+.form {
+  box-shadow: 0 0 10px 1px #ff6f61;
+  padding: 2rem 5rem;
   width: 400px;
-  padding: 6px;
-  display: block;
-  background-color: #fff;
-  color: #444;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
-.formControl {
-  margin-bottom: 20px;
+.formControl:not(:nth-last-of-type(1)) {
+  margin-bottom: 15px;
+}
+.formControl label {
+  display: flex;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+.formControl > label {
+  margin-bottom: 5px;
+}
+.formControl input + label {
+  display: inline-flex;
+  font-size: 1.4rem;
+  margin-right: 30px;
+}
+.radio,
+.check {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.check label {
+  margin-bottom: 0px;
+}
+.formControl input[type="text"],
+.formControl input[type="email"],
+.formControl input[type="password"],
+select {
+  box-sizing: border-box;
+  font-size: 1.4rem;
+  width: 100%;
+  padding: 1rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #555;
+  display: block;
+  color: #555;
+}
+.error {
+  color: red;
+  font-size: 1.1rem;
 }
 
 button {
-  padding: 5px 15px;
+  font-size: 1.6rem;
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: #ff6f61;
+  border: none;
+  color: white;
+  border-radius: 5px;
 }
 
-.error {
-  color: red;
+button:disabled {
+  background-color: #ff6e6167;
+  cursor: not-allowed;
 }
 
-input + label {
-  font-weight: bold;
-  display: inline-flex;
-  margin-right: 20px;
-  margin-left: 5px;
-}
+@media screen and (max-width: 1024px) {
+  .form {
+    box-sizing: border-box;
+    padding: 1.2rem 2rem;
+    width: 100%;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 400px;
-  padding: 6px 12px;
-  display: block;
-  background-color: #fff;
-  color: #444;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-
-.formControl {
-    margin-bottom: 20px;
-}
-
-button{
-    padding: 5px 15px;
-}
-.error{
-    color: red;
+  .formControl {
+    width: 100%;
+  }
+  .formControl input[type="text"],
+  .formControl input[type="email"],
+  .formControl input[type="password"],
+  select {
+    font-size: 1.4rem;
+    width: 100%;
+    padding: 1rem 1rem;
+  }
+  .buttons {
+    width: 100%;
+  }
+  button {
+    font-size: 1.4rem;
+    width: 100%;
+    padding: 1.2rem 2rem;
+    background-color: #ff6f61;
+  }
 }

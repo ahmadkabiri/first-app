@@ -1,244 +1,201 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-// import Input from "./common/Input";
-// import RadioInput from "./common/RadioInput";
+import axios from "axios";
+import Input from "./common/Input";
+import RadioInput from "./common/RadioInput";
+import SelectComponent from "./common/SelectComponent";
+import CheckBoxInput from "./common/CheckBoxInput";
 
 const radioOptions = [
-  { lable: "male", value: "0" },
-  { lable: "female", value: "1" },
+  {
+    label: "Male",
+    value: "0",
+  },
+  {
+    label: "Female",
+    value: "1",
+  },
 ];
 
+const checkBoxOptions = [
+  {
+    label: "React.js",
+    value: "React.js",
+  },
+  {
+    label: "Vue.js",
+    value: "Vue.js",
+  },
+];
+
+const selectOptions = [
+  {
+    label: "select nationality ...",
+    value: "",
+  },
+  {
+    label: "Iran",
+    value: "IR",
+  },
+  {
+    label: "Germany",
+    value: "GR",
+  },
+  {
+    label: "USA",
+    value: "US",
+  },
+];
+
+const initialValues = {
+  name: "",
+  email: "",
+  phoneNumber: "",
+  password: "",
+  passwordConfirm: "",
+  gender: "",
+  nationality: "",
+  intrests: [],
+  terms: false,
+};
+
+const onSubmit = (values) => {
+  axios
+    .post("http://localhost:3001/users", values)
+    .then((res) => console.log(res.data))
+    .catch((err) => console.log(err.response.data));
+  // console.log(values);
+};
+// const validate = (values) => {
+//   let errors = {};
+
+//   if (!values.name) {
+//     errors.name = "Name is Required";
+//   }
+//   if (!values.email) {
+//     errors.email = "Email is Required";
+//   }
+//   if (!values.password) {
+//     errors.password = "Password is Required";
+//   }
+
+//   return errors;
+// };
+
+const validationSchema = Yup.object({
+  name: Yup.string()
+    .required("Name is Required")
+    .min(4, "Name length is too short"),
+  email: Yup.string()
+    .email("Invalid email format")
+    .required("Email is Required"),
+  phoneNumber: Yup.string()
+    .required("Phone Number is Required")
+    .matches(/^[0-9]{11}$/, "Phone Number should be 11 digit"),
+  password: Yup.string().required("Password is Required"),
+  passwordConfirm: Yup.string().test(
+    "password-match",
+    "Password must match",
+    function (value) {
+      return this.parent.password === value;
+    }
+  ),
+  gender: Yup.string().required("Gender is Required"),
+  nationality: Yup.string().required("select nationality !"),
+  intrests: Yup.array().min(1).required("at least select on expertise"),
+  terms: Yup.boolean()
+    .required("Accept Terms & Conditions is required")
+    .oneOf([true], "Accept Terms & Conditions is required"),
+});
+
+// Yup.string()
+//     .required("Password Confirmation is Required")
+//     .oneOf([Yup.ref("password"), null], "Password must match"),
+
 function SignUpForm() {
-  //   const [userData, setUserData] = useState({
-  //     name: "",
-  //     email: "",
-  //     password: "",
-  //   });
-
-  //   const changeHandler = (e) => {
-  //     console.log(e.target.value);
-  //     setUserData({ ...userData, [e.target.name]: e.target.value });
-  //   };
-
-  const savedData = {
-    name: "ahmad kabiri",
-    email: "ahmadkabiriw@gmail.com",
-    password: "1111",
-    phoneNumber: "09028801466",
-    passwordConfirm: "1111",
-    gender: "0",
-  };
-
-  // 1.
-  const initialValues = {
-    name: "",
-    email: "",
-    password: "",
-    phoneNumber: "",
-    passwordConfirm: "",
-    gender: "",
-  };
-  // 2.
-  const onSubmit = (values) => {
-    console.log(values);
-  };
-  // 3.
-  // const validate = (values) => {
-  //   console.log(values);
-  //   // errors => {}
-  //   //errors.name
-  //   //errors.email
-  //   //errors.password
-
-  //   let errors = {};
-
-  //   if (!values.name) {
-  //     errors.name = "name is required";
-  //   }
-  //   if (!values.email) {
-  //     errors.email = "email is required";
-  //   }
-  //   if (!values.password) {
-  //     errors.password = "password is required";
-  //   }
-  //   return errors;
-  // };
-
-  const validationSchema = Yup.object({
-    name: Yup.string()
-      .required("Name is required")
-      .min(6, "Name length is not valid"),
-    email: Yup.string()
-      .email("Invalid email format")
-      .required("Email is required"),
-    password: Yup.string().required("Password is required"),
-    phoneNumber: Yup.string()
-      .required("Phone number is required")
-      .matches(/^[0-9]{11}$/, "Invalid Phone Number")
-      .nullable(),
-    passwordConfirm: Yup.string()
-      .required("Password Confirmation is required")
-      .oneOf([Yup.ref("password"), null], "Passwords must match"),
-
-    gender: Yup.string().required("Gender is required"),
+  const [formData, setFormData] = useState({
+    "id": 1,
+    "name": "ahmad",
+    "email": "ahmadkabiriw@gmail.com",
+    "phoneNumber": "09028801466",
+    "password": "1a2b3c4d",
+    "passwordConfirm": "1a2b3c4d",
+    "gender": "0",
+    "nationality": "US",
+    "intrests": [
+      "React.js"
+    ],
+    "terms": true
   });
 
-  const [formValues, setFormValues] = useState(null);
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       "https://my-json-server.typicode.com/adibjadidi/form-server-api/users"
+  //     )
+  //     .then((res) => 
+  //     {setFormData(res.data[0])
+  //     console.log(res.data[0])}
+  //     )
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   const formik = useFormik({
-    enableReinitialize: true,
-    initialValues: formValues || initialValues,
+    initialValues: formData || initialValues,
     onSubmit,
     validationSchema,
     validateOnMount: true,
+    enableReinitialize: true,
   });
-
-  console.log(formik.touched);
-
-  //   const submitHandler = (e) => {
-  //     e.preventDefault();
-  //     console.log("submitted...");
-  //     // Call the server => submit data => post => user
-  //   };
-
+  console.log(formik.values);
   return (
-    <div>
-      <form onSubmit={formik.handleSubmit}>
-        <div className="formControl">
-          <label htmlFor="name">Name</label>
-          <input
-            id="name"
-            type="text"
-            // onChange={changeHandler}
-            // value={userData.name}
-            name="name"
-            // value={formik.values.name}
-            // onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
-            {...formik.getFieldProps("name")}
-          />
-          {formik.errors.name && formik.touched.name && (
-            <div className="error">{formik.errors.name}</div>
-          )}
-        </div>
-        {/* <Input formik={formik} name="name" label="Name" />
-        <Input formik={formik} name="email" label="Email" />
-        <Input formik={formik} name="phoneNumber" label="Phone Number" />
-        <Input formik={formik} name="name" label="Name" />
-        <Input
-          formik={formik}
-          name="password"
-          label="Password"
-          type="password"
+    <form className="form" onSubmit={formik.handleSubmit}>
+      <Input label="Name" name="name" formik={formik} />
+      <Input label="Email" name="email" formik={formik} />
+      <Input label="Phone Number" name="phoneNumber" formik={formik} />
+      <Input label="Password" name="password" formik={formik} type="password" />
+      <Input
+        label="Password Confirmation"
+        name="passwordConfirm"
+        formik={formik}
+        type="password"
+      />
+      <RadioInput formik={formik} name="gender" radioOptions={radioOptions} />
+      <SelectComponent
+        formik={formik}
+        name="nationality"
+        selectOptions={selectOptions}
+      />
+      <CheckBoxInput
+        formik={formik}
+        name="intrests"
+        checkBoxOptions={checkBoxOptions}
+      />
+      <div className="formControl align">
+        <input
+          type="checkbox"
+          id="terms"
+          name="terms"
+          value={true}
+          onChange={formik.handleChange}
+          onClick={() => formik.setFieldTouched("terms", true)}
+          checked={formik.values.terms}
         />
-        <Input
-          formik={formik}
-          name="passwordConfirm"
-          label="Password Confirm"
-        />
-         */}
-
-        <div className="formControl">
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="text"
-            // onChange={changeHandler}
-            // value={userData.email}
-            email="email"
-            {...formik.getFieldProps("email")}
-          />
-          {formik.errors.email && formik.touched.email && (
-            <div className="error">{formik.errors.email}</div>
-          )}
-        </div>
-        <div className="formControl">
-          <label htmlFor="phoneNumber">PhoneNumber</label>
-          <input
-            id="phoneNumber"
-            type="text"
-            // onChange={changeHandler}
-            // value={userData.password}
-            name="phoneNumber"
-            // value={formik.values.password}
-            // onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
-            {...formik.getFieldProps("phoneNumber")}
-          />
-          {formik.errors.phoneNumber && formik.touched.phoneNumber && (
-            <div className="error">{formik.errors.phoneNumber}</div>
-          )}
-        </div>
-        <div className="formControl">
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="text"
-            // onChange={changeHandler}
-            // value={userData.password}
-            name="password"
-            // value={formik.values.password}
-            // onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
-            {...formik.getFieldProps("password")}
-          />
-          {formik.errors.password && formik.touched.password && (
-            <div className="error">{formik.errors.password}</div>
-          )}
-        </div>
-        <div className="formControl">
-          <label htmlFor="password">Password Confirmation</label>
-          <input
-            id="passwordConfirm"
-            type="text"
-            // onChange={changeHandler}
-            // value={userData.password}
-            name="passwordConfirm"
-            // value={formik.values.password}
-            // onChange={formik.handleChange}
-            // onBlur={formik.handleBlur}
-            {...formik.getFieldProps("passwordConfirm")}
-          />
-          {formik.errors.passwordConfirm && formik.touched.passwordConfirm && (
-            <div className="error">{formik.errors.passwordConfirm}</div>
-          )}
-        </div>
-        <div className="formControl">
-          <input
-            type="radio"
-            id="0"
-            name="gender"
-            value="0"
-            onChange={formik.handleChange}
-            checked={formik.values.gender === "0"}
-          />
-          <label htmlFor="0">Male</label>
-          <input
-            type="radio"
-            id="1"
-            name="gender"
-            value="1"
-            onChange={formik.handleChange}
-            checked={formik.values.gender === "1"}
-          />
-          <label htmlFor="1">Female</label>
-        </div>
-        {/* <RadioInput formik={formik} radioOptions={radioOptions} name="gender"></RadioInput> */}
-        <button onClick={() => setFormValues(savedData)}>Load Data</button>
+        <label htmlFor="terms">Terms and Conditions</label>
+        {formik.errors.terms && formik.touched.terms && (
+          <div className="error"> {formik.errors.terms}</div>
+        )}
+      </div>
+      {console.log(formik.touched)}
+      <div className="buttons">
         <button type="submit" disabled={!formik.isValid}>
           submit
         </button>
-      </form>
-    </div>
+        {/* <button onClick={() => setFormData(savedData)}>Load Data</button> */}
+      </div>
+    </form>
   );
 }
 
 export default SignUpForm;
-
-// 1. managing state
-// 2. handling form submission
-// 3. validation - errors message
-// => formik
-
-//gender :  0 or 1 => male : female
