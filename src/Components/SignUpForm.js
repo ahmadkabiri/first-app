@@ -114,7 +114,7 @@ const validationSchema = Yup.object({
 //     .oneOf([Yup.ref("password"), null], "Password must match"),
 
 function SignUpForm() {
-  const [formData, setFormData] = useState({
+  const [formData] = useState({
     "id": 1,
     "name": "ahmad",
     "email": "ahmadkabiriw@gmail.com",
