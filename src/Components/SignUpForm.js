@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Input from "./common/Input";
-import RadioInput from "./common/RadioInput";
+// import Input from "./common/Input";
+// import RadioInput from "./common/RadioInput";
 
 const radioOptions = [
   { lable: "male", value: "0" },
