@@ -1,115 +1,60 @@
-.App {
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 5rem;
-}
-
 * {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
-html,
-body,
-#root {
-  height: 100%;
+body {
+  height: 100vh;
+  background-color: #13162b;
+  display: grid;
+  place-items: center;
 }
-
-.form {
-  box-shadow: 0 0 10px 1px #ff6f61;
-  padding: 2rem 5rem;
-  width: 400px;
-  border-radius: 5px;
+.container {
+  position: relative;
+  width: 80vmin;
+  background-color: #191c37;
+  padding: 100px 40px;
+  border-radius: 9px;
+  box-shadow: 0 25px 40px rgba(0, 0, 0, 0.2);
 }
-
-.formControl:not(:nth-last-of-type(1)) {
-  margin-bottom: 15px;
+.container:after {
+  content: "";
+  position: absolute;
+  width: 85%;
+  left: 7.5%;
+  height: 120%;
+  bottom: -10%;
+  background-color: #0087ff;
+  z-index: -1;
+  border-radius: 8px;
 }
-.formControl label {
+h1 {
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+  font-size: 80px;
+  color: #ffffff;
+}
+.btns {
   display: flex;
-  font-weight: 700;
-  font-size: 1.6rem;
+  justify-content: space-around;
+  margin-top: 80px;
 }
-.formControl > label {
-  margin-bottom: 5px;
-}
-.formControl input + label {
-  display: inline-flex;
-  font-size: 1.4rem;
-  margin-right: 30px;
-}
-.radio,
-.check {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.check label {
-  margin-bottom: 0px;
-}
-.formControl input[type="text"],
-.formControl input[type="email"],
-.formControl input[type="password"],
-select {
-  box-sizing: border-box;
-  font-size: 1.4rem;
-  width: 100%;
-  padding: 1rem 1rem;
-  border-radius: 5px;
-  border: 1px solid #555;
-  display: block;
-  color: #555;
-}
-.error {
-  color: red;
-  font-size: 1.1rem;
-}
-
-button {
-  font-size: 1.6rem;
-  width: 100%;
-  padding: 1rem 2rem;
-  background-color: #ff6f61;
+.btns button {
+  width: 130px;
+  padding: 15px 0;
+  font-size: 18px;
   border: none;
-  color: white;
+  outline: none;
   border-radius: 5px;
+  cursor: pointer;
 }
-
-button:disabled {
-  background-color: #ff6e6167;
-  cursor: not-allowed;
+button.inc,
+button.dec {
+  background-color: #0087ff;
+  color: #ffffff;
 }
-
-@media screen and (max-width: 1024px) {
-  .form {
-    box-sizing: border-box;
-    padding: 1.2rem 2rem;
-    width: 100%;
-    min-width: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .formControl {
-    width: 100%;
-  }
-  .formControl input[type="text"],
-  .formControl input[type="email"],
-  .formControl input[type="password"],
-  select {
-    font-size: 1.4rem;
-    width: 100%;
-    padding: 1rem 1rem;
-  }
-  .buttons {
-    width: 100%;
-  }
-  button {
-    font-size: 1.4rem;
-    width: 100%;
-    padding: 1.2rem 2rem;
-    background-color: #ff6f61;
-  }
+button.reset {
+  background-color: transparent;
+  border: 4px solid #0087ff;
+  color: #0087ff;
 }
