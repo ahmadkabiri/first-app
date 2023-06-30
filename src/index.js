@@ -4,15 +4,29 @@ import App from "./App";
 import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter } from "react-router-dom";
 
+import store from "./redux/store";
+import {
+  counterIncrementAction,
+  counterDecrementAction,
+  counterRestartAction
+} from "./redux/actionCreator";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+const render  = () => root.render(
   <BrowserRouter>
-    // <App />
+    <App
+      counter={store.getState()}
+      onIncrement={() => store.dispatch(counterIncrementAction())}
+      onDecrement={() => store.dispatch(counterDecrementAction())}
+      onRestart = {() => store.dispatch(counterRestartAction())}
+    />
   </BrowserRouter>
   // <App></App>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
+render()
+
+store.subscribe(render)
+
+
+

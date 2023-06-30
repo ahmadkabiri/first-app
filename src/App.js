@@ -1,36 +1,33 @@
 import React, { useState } from "react";
 import "./App.css";
 
-export default function App() {
+export default function App({ counter, onIncrement, onDecrement , onRestart }) {
+  // const [counter,setCounter] = useState(0) ;
 
+  // const incrementHandler = () => {
+  //   setCounter((counter) => counter + 1);
+  // };
 
-  const [counter,setCounter] = useState(0) ;
+  // const decrementHandler = () => {
+  //   setCounter((counter) => counter - 1);
+  // };
 
-  const incrementHandler = () => {
-    setCounter(counter => counter +1)
-  }
-
-  const decrementHandler = () => {
-    setCounter(counter => counter - 1)
-  }
-
-  const resetCounter = () => {
-    setCounter(0)
-  }
-
+  // const resetCounter = () => {
+  //   setCounter(0);
+  // };
 
   return (
-    <div class="container">
-      <h1 id="num">{counter}</h1>
-      <div class="btns">
-        <button class="dec" onClick = {decrementHandler} >
-          <i class="fas fa-minus"></i>
+    <div className="container">
+      <h1 id="num">12</h1>
+      <div className="btns">
+        <button className="dec" onClick={onDecrement}>
+          <i className="fas fa-minus"></i>
         </button>
-        <button class="reset" onClick={resetCounter}>
-          <i class="fas fa-redo"></i>
+        <button className="reset" onClick={onRestart}>
+          <i className="fas fa-redo"></i>
         </button>
-        <button class="inc" onClick = {incrementHandler} >
-          <i class="fas fa-plus"></i>
+        <button className="inc" onClick={onIncrement}>
+          <i className="fas fa-plus"></i>
         </button>
       </div>
     </div>
