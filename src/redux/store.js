@@ -1,20 +1,16 @@
-import { legacy_createStore } from "redux";
-import reducer from './reducer'
+import { legacy_createStore, combineReducers } from "redux";
+import reducers from "./reducer";
 
-const store = legacy_createStore(reducer)
+import productReducer from "./store/Products";
+import articlesReducer from "./store/Articles";
+import commentReducer from "./store/Comments";
 
+const store = legacy_createStore(
+  combineReducers({
+    products : productReducer,
+    articles : articlesReducer,
+    comments : commentReducer,
+  })
+);
 
-export default store
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default store;
